@@ -1,4 +1,4 @@
-"use strict";
+"use strict"; // Course 103. Destructuring Arrays //
 
 const restaurant = {
   name: "Classico Italiano",
@@ -6,6 +6,10 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
+
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 };
 
 // declaring var one at a time //
@@ -22,8 +26,25 @@ console.log(arr);
 let [main, , secondary] = restaurant.categories;
 console.log(main, secondary);
 
-// To switch categories //
+// Switching Variables //
 const temp = main;
 main = secondary;
 secondary = temp;
 console.log(main, secondary);
+
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
+// Receive 2 return values from a function //
+const [starter, mainCourse] = restaurant.order(2, 0);
+console.log(starter, mainCourse);
+
+const nested = [2, 4, [5, 6]];
+// const [i, , j] = nested;
+// console.log(i, j);
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+
+// Default Values //
+const [p = 1, q = 1, r = 1] = [8, 9];
+console.log(p, q, r);
