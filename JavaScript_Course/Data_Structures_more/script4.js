@@ -42,4 +42,22 @@ const restaurant = {
   },
 };
 
-// 106. Rest Pattern and Parameters //
+// 106. Rest Pattern and Parameters : pack element into an array//
+//Spread, because ... are on the right side of = //
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
+
+// Rest, because on the left side of the = //
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects //
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
